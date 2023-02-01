@@ -1,10 +1,9 @@
 # DICOMweb Go
 
-[![license](https://img.shields.io/badge/license-MIT-blue)](https://github.com/toastcheng/dicomweb-go/blob/master/LICENSE.md)
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/toastcheng/dicomweb-go/dicomweb)](https://pkg.go.dev/github.com/toastcheng/dicomweb-go/dicomweb)
-[![Go Report Card](https://goreportcard.com/badge/github.com/toastcheng/dicomweb-go)](https://goreportcard.com/report/github.com/toastcheng/dicomweb-go)
-[![Coverage Status](https://coveralls.io/repos/github/ToastCheng/dicomweb-go/badge.svg?branch=master)](https://coveralls.io/github/ToastCheng/dicomweb-go?branch=master)
-[![GitHub Actions](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Ftoastcheng%2Fdicomweb-go%2Fbadge&style=flat-square)](https://actions-badge.atrox.dev/toastcheng/dicomweb-go/goto)
+[![license](https://img.shields.io/badge/license-MIT-blue)](https://github.com/Szubie/dicomweb-go/blob/master/LICENSE.md)
+[![Go Report Card](https://goreportcard.com/badge/github.com/Szubie/dicomweb-go)](https://goreportcard.com/report/github.com/Szubie/dicomweb-go)
+[![Coverage Status](https://coveralls.io/repos/github/Szubie/dicomweb-go/badge.svg?branch=master)](https://coveralls.io/github/Szubie/dicomweb-go?branch=master)
+[![GitHub Actions](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2FSzubie%2Fdicomweb-go%2Fbadge&style=flat-square)](https://actions-badge.atrox.dev/Szubie/dicomweb-go/goto)
 
 
 ## Introduction
@@ -18,13 +17,12 @@ This package provides a simple DICOMweb client that allows you to query DICOM in
 
 
 ## Documentation
-* pkg.go.dev : https://pkg.go.dev/github.com/toastcheng/dicomweb-go/dicomweb
 * Dicomweb : https://www.dicomstandard.org/dicomweb
 
 ## Getting Started
 ### Installation
 ```
-go get github.com/toastcheng/dicomweb-go/dicomweb
+go get github.com/Szubie/dicomweb-go/dicomweb
 ```
 
 ### Requirements
@@ -132,8 +130,8 @@ log.Println(resp)
 ## Contributing
 
 This project is still in development, any contributions, issues and feature requests are welcome!
-Please check out the [issues page](https://github.com/toastcheng/dicomweb-go/issues).
+Please check out the [issues page](https://github.com/Szubie/dicomweb-go/issues).
 
 ## License
 
-`dicomweb-go` is available under the [MIT](https://github.com/toastcheng/dicomweb-go/blob/master/LICENSE.md) license.
+`dicomweb-go` is available under the [MIT](https://github.com/Szubie/dicomweb-go/blob/master/LICENSE.md) license.

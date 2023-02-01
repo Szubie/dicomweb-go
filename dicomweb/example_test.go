@@ -6,7 +6,7 @@ import (
 	"log"
 	"strconv"
 
-	"github.com/toastcheng/dicomweb-go/dicomweb"
+	"github.com/Szubie/dicomweb-go/dicomweb"
 )
 
 func ExampleClient_Query_allStudy() {
