@@ -31,7 +31,7 @@ type Client struct {
 	stowEndpoint  string
 	authorization string
 	boundary      string
-	optionFuncs *[]OptionFunc
+	optionFuncs   *[]OptionFunc
 }
 
 // OptionFunc is a signature for methods which can modify dicom requests
@@ -78,7 +78,7 @@ func NewClient(option ClientOption) *Client {
 	}
 	return &Client{
 		httpClient:   httpClient,
-		optionFuncs: option.OptionFuncs,
+		optionFuncs:  option.OptionFuncs,
 		qidoEndpoint: option.QIDOEndpoint,
 		wadoEndpoint: option.WADOEndpoint,
 		stowEndpoint: option.STOWEndpoint,
@@ -145,8 +145,13 @@ func (c *Client) Query(req QIDORequest) ([]QIDOResponse, error) {
 	}
 	defer resp.Body.Close()
 
-	if resp.StatusCode/100 != 2 {
-		return nil, errors.New(resp.Status)
+	if resp.StatusCode != http.StatusOK {
+		b, _ := io.ReadAll(resp.Body)
+		errMessage := string(b)
+		if errMessage == "" {
+			errMessage = resp.Status
+		}
+		return nil, errors.New(errMessage)
 	}
 
 	result := []QIDOResponse{}
@@ -225,9 +230,13 @@ func (c *Client) Retrieve(req WADORequest) ([][]byte, error) {
 	}
 	defer resp.Body.Close()
 
-	if resp.StatusCode/100 != 2 {
-		// b, _ := ioutil.ReadAll(resp.Body)
-		return nil, errors.New(resp.Status)
+	if resp.StatusCode != http.StatusOK {
+		b, _ := io.ReadAll(resp.Body)
+		errMessage := string(b)
+		if errMessage == "" {
+			errMessage = resp.Status
+		}
+		return nil, errors.New(errMessage)
 	}
 
 	parts := [][]byte{}
@@ -328,6 +337,14 @@ func (c *Client) Store(req STOWRequest) (interface{}, error) {
 	resp, err := c.httpClient.Do(r)
 	if err != nil {
 		return nil, err
+	}
+	if resp.StatusCode != http.StatusOK {
+		b, _ := io.ReadAll(resp.Body)
+		errMessage := string(b)
+		if errMessage == "" {
+			errMessage = resp.Status
+		}
+		return nil, errors.New(errMessage)
 	}
 
 	var result interface{}
